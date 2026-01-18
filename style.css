@@ -804,3 +804,9 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Ensure the counter class is visible and ready */
+.counter {
+    display: inline-block;
+    min-width: 50px;
+    opacity: 1 !important; /* Force visibility for testing */
+}
