@@ -53,3 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealSections);
     revealSections(); // Run once on load
 });
+const menu = document.querySelector('#mobile-menu');
+const overlay = document.querySelector('#nav-overlay');
+
+// Function to toggle the menu
+function toggleMenu() {
+    menu.classList.toggle('is-active');
+    overlay.classList.toggle('active');
+}
+
+// Event listener for the hamburger click
+menu.addEventListener('click', toggleMenu);
+
+// Close menu when a link is clicked (using the onclick in HTML)
+// Also close if user clicks anywhere on the overlay background
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        toggleMenu();
+    }
+});

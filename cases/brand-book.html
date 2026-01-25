@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Brand Identity | Denis Mutuma</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .brand-header {
+            background: #1a202c;
+            padding: 100px 10% 60px;
+            text-align: center;
+            color: white;
+        }
+        .brand-section {
+            padding: 60px 10%;
+        }
+        .color-palette {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+            font-size: 0.7rem;
+            color: white;
+            font-weight: bold;
+        }
+        .guideline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .mockup-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" style="position: relative;">
+        <div class="logo-circle">MD</div>
+        <a href="../index.html" class="home-icon"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header class="brand-header">
+        <h1>Corporate Identity & Brand Book</h1>
+        <p>Building a consistent visual language for modern organizations.</p>
+    </header>
+
+    <main class="brand-section">
+        <div class="guideline-grid">
+            <div class="text-side">
+                <h2>Design Concept</h2>
+                <p>The goal was to create a visual identity that felt <strong>technical</strong> (ICT) yet <strong>trustworthy</strong> (Strategy). We chose a minimalist approach to ensure the brand scales perfectly from business cards to giant billboards.</p>
+                
+                <h3 style="margin-top: 30px;">Color Strategy</h3>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: #0f172a;">#0F172A</div>
+                    <div class="color-swatch" style="background: #3b82f6;">#3B82F6</div>
+                    <div class="color-swatch" style="background: #64748b; color: black;">#64748B</div>
+                </div>
+            </div>
+
+            <div class="image-side">
+                <img src="../Images/brand-mockup.png" alt="Brand Mockup" class="mockup-img">
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center; background: #f8fafc; padding: 40px; border-radius: 20px;">
+            <h2>The Impact</h2>
+            <p>"The brand book Denis created allowed us to maintain 100% consistency across our branches in three different counties."</p>
+            <p><strong>— Client Feedback</strong></p>
+        </div>
+    </main>
+
+    <footer style="padding: 40px 10%; background: var(--dark); color: white; text-align: center;">
+        <p>&copy; 2024 Denis Mutuma | Branding & Strategy Specialist</p>
+    </footer>
+
+</body>
+</html>

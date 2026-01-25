@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body id="top">
 
-  <nav>
+ <nav class="navbar">
     <div class="logo-circle">MD</div>
+    
+  <div class="nav-controls">
+        <a href="#top" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>  
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <div class="nav-overlay" id="nav-overlay">
     <ul class="nav-links">
         <li><a href="#about" class="nav-about">About</a></li>
         <li><a href="#skills" class="nav-skills">Skills</a></li>
@@ -41,39 +53,57 @@
   <section id="about" class="section">
     <div class="container">
         <h2 class="section-title">About <span>Me</span></h2>
-
-            <div class="about-content">
+        
+        <div class="about-wrapper">
+            <div class="about-text-content">
                 <p class="lead-text">
-                    I am a multifaceted professional with a Diploma in ICT and a deep-seated passion for <strong>political analysis</strong> and <strong>entrepreneurship</strong>.
+                    I am a multifaceted <strong>ICT professional and entrepreneur</strong> dedicated to bridging the gap between technical logic and human influence.
                 </p>
-                
-                <div class="about-pillars">
-    <div class="pillar-card ic-card" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=500');">
-        <div class="pillar-overlay">
+                <p>
+                    With a background in Information Communication Technology and a keen eye for regional political dynamics, I specialize in building digital experiences that function as strategic tools. My approach combines the precision of coding with the creativity of branding.
+                </p>
+                <p>
+                    Whether I am developing a custom inventory system or analyzing electorate data, I believe that <strong>digital transformation</strong> is the key to transparent leadership and data-driven governance in the modern era.
+                </p>
+                <div class="about-cta">
+                    <a href="#footer" class="btn primary">Let's Strategize</a>
+                </div>
+            </div>
+
+            <div class="about-pillars-grid">
+    <div class="pillar-card-v2">
+        <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="card-glass">
             <i class="fas fa-code"></i>
-            <h4>ICT & Dev</h4>
-            <p>Building robust digital solutions with modern logic.</p>
+            <div class="card-info-text">
+                <h4>ICT & Dev</h4>
+                <p>Architecting robust systems with clean, modern logic and scalable code.</p>
+            </div>
         </div>
     </div>
 
-    <div class="pillar-card pol-card" style="background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=500');">
-        <div class="pillar-overlay">
-            <i class="fas fa-chart-pie"></i>
-            <h4>Political Analyst</h4>
-            <p>Decoding influence and tracking regional trends.</p>
+    <div class="pillar-card-v2">
+        <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="card-glass">
+            <i class="fas fa-chart-line"></i>
+            <div class="card-info-text">
+                <h4>Political Strategy</h4>
+                <p>Decoding regional influence and tracking trends for data-driven governance.</p>
+            </div>
         </div>
     </div>
 
-   <div class="pillar-card brand-card" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=500');">
-    <div class="pillar-overlay">
-        <i class="fas fa-lightbulb"></i>
-        <h4>Branding</h4>
-        <p>Establishing identity through print and design.</p>
+    <div class="pillar-card-v2">
+        <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="card-glass">
+            <i class="fas fa-pen-fancy"></i>
+            <div class="card-info-text">
+                <h4>Branding & Print</h4>
+                <p>Establishing authority through high-impact visual identity and design.</p>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-
-                <p>I thrive at the intersection of logic (coding), influence (politics), and creativity (design).</p>
             </div>
         </div>
     </div>
@@ -152,7 +182,7 @@
             <div class="work-card">
                 <div class="service-image" style="background-image:url('Images/ls2.png');">
                     <div class="work-icon"><i class="fas fa-video"></i></div>
-                    <a href="#footer" class="btn-tag">Book Service</a>
+                    <a href="streaming.html" class="btn-tag">Book Service</a>
                 </div>
                 <div class="service-content">
                     <h3>Live Streaming & Videography</h3>
@@ -161,20 +191,22 @@
             </div>
 
             <div class="work-card">
-                <div class="service-image" style="background-image: url('Images/ls3.png');">
-                    <div class="work-icon"><i class="fas fa-tools"></i></div>
-                    <a href="#footer" class="btn-tag">Get Support</a>
-                </div>
-                <div class="service-content">
-                    <h3>ICT Support & Maintenance</h3>
-                    <p>System diagnostics, hardware repair, and network troubleshooting for businesses.</p>
-                </div>
-            </div>
+    <div class="service-image" style="background-image: url('Images/ls3.png');">
+        <div class="work-icon"><i class="fas fa-tools"></i></div>
+        
+        <a href="ict-support.html" class="btn-tag">Get Support</a>
+        
+    </div>
+    <div class="service-content">
+        <h3>ICT Support & Maintenance</h3>
+        <p>System diagnostics, hardware repair, and network troubleshooting for businesses.</p>
+    </div>
+</div>
 
             <div class="work-card">
                 <div class="service-image" style="background-image: url('Images/gd1.png');">
                     <div class="work-icon"><i class="fas fa-pen-nib"></i></div>
-                    <a href="#footer" class="btn-tag">Hire Me</a>
+                   <a href="branding.html" class="btn-tag">View Gallery</a>
                 </div>
                 <div class="service-content">
                     <h3>Branding & Graphics</h3>
@@ -185,7 +217,7 @@
             <div class="work-card">
                 <div class="service-image" style="background-image: url('Images/pl1.png');">
                     <div class="work-icon"><i class="fas fa-users"></i></div>
-                    <a href="#footer" class="btn-tag">Consult</a>
+                    <a href="politics.html" class="btn-tag">View Framework</a>
                 </div>
                 <div class="service-content">
                     <h3>Political Strategy</h3>
@@ -196,7 +228,7 @@
             <div class="work-card">
                 <div class="service-image" style="background-image: url('Images/dev.jpg');">
                     <div class="work-icon"><i class="fas fa-laptop-code"></i></div>
-                    <a href="#footer" class="btn-tag">Develop</a>
+                    <a href="web-dev.html" class="btn-tag">View Stack</a>
                 </div>
                 <div class="service-content">
                     <h3>Web Design & Dev</h3>
@@ -247,6 +279,41 @@
     </div>
 </section>
 
+<section id="testimonials" class="section-compact">
+    <div class="container">
+        <h2 class="small-title">Client <span>Reviews</span></h2>
+        
+        <div class="compact-grid">
+            <div class="mini-card">
+                <div class="card-top">
+                    <div class="mini-photo" style="background-image: url('Images/client1.jpg');"></div>
+                    <div class="mini-stars">★★★★★</div>
+                </div>
+                <p>"Denis is a top-tier ICT strategist. Highly recommended for campaign data."</p>
+                <h4>Hon. James K.</h4>
+            </div>
+
+            <div class="mini-card">
+                <div class="card-top">
+                    <div class="mini-photo" style="background-image: url('Images/client2.jpg');"></div>
+                    <div class="mini-stars">★★★★★</div>
+                </div>
+                <p>"Flawless live streaming and web systems. Professional and very reliable."</p>
+                <h4>Sarah W.</h4>
+            </div>
+
+            <div class="mini-card">
+                <div class="card-top">
+                    <div class="mini-photo" style="background-image: url('Images/client3.jpg');"></div>
+                    <div class="mini-stars">★★★★★</div>
+                </div>
+                <p>"Excellent branding and graphics work. He understands the vision perfectly."</p>
+                <h4>Mike O.</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
       <footer id="footer">
     <div class="footer-container">
         
@@ -287,8 +354,9 @@
                 </div>
 
                 <div class="social-icons" style="margin-right: 10px;">
-                    <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100010268261796" class="facebook" title="Facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+                    </a>                    <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://wa.me/254715945058" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -301,8 +369,8 @@
         <div class="footer-bottom">
             <div class="footer-legal-wrap">
                 <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                   <a href="privacy.html">Privacy Policy</a>
+                   <a href="terms.html">Terms of Service</a>
                 </div>
                 <p class="copyright">&copy; 2024 Denis Mutuma. All Rights Reserved.</p>
             </div>

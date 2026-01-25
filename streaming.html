@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streaming Services | Denis Mutuma</title>
+    <link rel="stylesheet" href="../style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Service Page */
+        .service-hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('../Images/ls2.png');
+            background-size: cover;
+            padding: 120px 10% 60px;
+            text-align: center;
+            color: white;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            padding: 60px 10%;
+        }
+        .package-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .package-table th { background: var(--dark); color: white; padding: 15px; }
+        .package-table td { padding: 15px; border-bottom: 1px solid #eee; }
+        
+        .booking-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .booking-card input, .booking-card select, .booking-card textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" style="position: relative;">
+        <div class="logo-circle">MD</div>
+        <a href="../index.html" class="home-icon"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header class="service-hero">
+        <h1>Live Streaming & Videography</h1>
+        <p>Broadcast your message to the world with crystal-clear HD quality.</p>
+    </header>
+
+    <section class="details-grid">
+        <div class="info-side">
+            <h2>Professional Broadcasting Solutions</h2>
+            <p style="margin: 20px 0; color: #64748b; line-height: 1.8;">
+                From political rallies to corporate AGMs, I provide a complete technical ecosystem for live broadcasting. We don't just stream; we produce an experience.
+            </p>
+            
+            <table class="package-table">
+                <thead>
+                    <tr>
+                        <th>Service Layer</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Standard Stream</strong></td>
+                        <td>Single Camera, YouTube/FB, Wireless Audio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Corporate Pro</strong></td>
+                        <td>Multi-cam, Lower Thirds (Graphics), Remote Guest Join</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Political Rally</strong></td>
+                        <td>Drone Feed, PA System Integration, Redundant Internet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="booking-side">
+            <div class="booking-card">
+                <h3>Reserve a Date</h3>
+                <form action="#">
+                    <label>Event Type</label>
+                    <select>
+                        <option>Corporate Meeting</option>
+                        <option>Political Event</option>
+                        <option>Wedding/Social</option>
+                    </select>
+                    <label>Event Date</label>
+                    <input type="date">
+                    <label>Brief Message</label>
+                    <textarea rows="4" placeholder="Tell me about your event..."></textarea>
+                    <button type="submit" class="btn primary" style="width: 100%; margin: 0;">Request Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 10%; background: var(--dark); color: white; text-align: center;">
+        <p>&copy; 2024 Denis Mutuma | ICT & Strategic Solutions</p>
+    </footer>
+
+</body>
+</html>

@@ -78,6 +78,119 @@ nav {
 .nav-links { display: flex; list-style: none; }
 .nav-links li { margin-left: 20px; }
 .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; }
+/* ==========================================================================
+   NAV CONTROLS (HOME + HAMBURGER)
+   ========================================================================== */
+
+/* Container to hold both icons on the right */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between Home icon and Hamburger */
+}
+
+/* Home Icon Styling */
+.home-icon {
+    font-size: 1.4rem;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home-icon:hover {
+    color: #007bff; /* Turns blue on hover */
+    transform: scale(1.1); /* Slight grow effect */
+}
+
+/* Ensure the navbar still spreads everything out */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: white;
+    position: fixed;
+    width: 100%;
+    z-index: 3000;
+}
+/* ==========================================================================
+   FIXED NAVIGATION & DROPDOWN
+   ========================================================================== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px; /* Set a fixed height for the bar */
+    z-index: 3000; /* Extremely high to stay on top */
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* HAMBURGER ICON */
+.menu-toggle {
+    display: block; /* Ensure it is not hidden */
+    cursor: pointer;
+    z-index: 3100; /* Higher than the navbar */
+    padding: 10px;
+}
+
+.bar {
+    display: block;
+    width: 30px; /* Slightly wider for visibility */
+    height: 3px;
+    margin: 6px 0;
+    background: #333; /* Dark color so it shows on white */
+    transition: 0.4s;
+}
+
+/* VERTICAL DROPDOWN BOX */
+.nav-overlay {
+    position: absolute;
+    top: 70px; /* Starts right below the navbar height */
+    right: 5%;
+    width: 200px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    
+    /* Animation: Hidden by default */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    z-index: 2900;
+}
+
+/* Show all items when active */
+.nav-overlay.active {
+    max-height: 500px; /* High enough to show all 4 links */
+    padding: 10px 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Forces vertical stack */
+}
+
+.nav-links li a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* ==========================================================================
+   ANIMATION: Icon to X
+   ========================================================================== */
+#mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+#mobile-menu.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+#mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* Hero Section Container */
 .hero {
@@ -513,108 +626,120 @@ footer {
         justify-content: center;
     }
 }
-/* --- Modern About Section Styles --- */
-.about-grid {
+/* ==========================================================================
+   ABOUT SECTION & PILLAR CARDS (UPDATED)
+   ========================================================================== */
+
+/* Layout Wrapper - Creates the 2-column split */
+.about-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.5fr; /* Bio takes less space than the visual cards */
     gap: 60px;
     align-items: center;
+    margin-top: 40px;
 }
 
-.about-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
+.about-text-content {
+    text-align: left;
 }
 
-/* Decorative frame behind the about image */
-.about-content .lead-text {
-    font-size: 1.2rem;
+.about-text-content .lead-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.about-text-content p {
+    font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* Pillar Cards (The 3 boxes) */
-.about-pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* New Pillar Card v2 Styling */
+.about-pillars-grid {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    margin-top: 30px;
 }
 
-.pillar-card {
-    height: 200px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
+.pillar-card-v2 {
     position: relative;
+    height: 130px; /* Controlled height for a sleek look */
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
-    align-items: flex-end; /* Keeps text at the bottom */
-    transition: transform 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.pillar-card:hover {
-    transform: translateY(-10px) scale(1.02);
+.pillar-card-v2:hover {
+    transform: translateX(20px); /* The "Push" effect */
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
 }
 
-/* The Glassmorphism Overlay */
-.pillar-overlay {
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.3); /* Darkens the image so text stays white */
+    transition: 0.5s ease;
+    z-index: 1;
+}
+
+.pillar-card-v2:hover .card-bg {
+    filter: brightness(0.5) scale(1.1);
+}
+
+.card-glass {
+    position: relative;
+    z-index: 2; /* Ensures text stays above the background image */
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
     width: 100%;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
-    backdrop-filter: blur(8px); /* Blurs the background image */
-    -webkit-backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--dark);
-    transition: 0.3s ease;
+    color: white;
 }
 
-.pillar-card:hover .pillar-overlay {
-    background: rgba(0, 123, 255, 0.2); /* Tint blue on hover */
+.card-glass i {
+    font-size: 2.2rem;
+    color: #38bdf8; /* A slightly brighter cyan-blue for better contrast */
+    min-width: 50px;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); /* Subtle glow effect */
 }
 
-.pillar-overlay i {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin-bottom: 10px;
-    display: block;
+.card-info-text {
+    text-align: left;
 }
 
-.pillar-overlay h4 {
+.card-info-text h4 {
+    font-size: 1.3rem;
     margin-bottom: 5px;
-    font-size: 1.1rem;
-    color: #000; /* Darker text for readability on glass */
+    color: #fff;
 }
 
-.pillar-overlay p {
-    font-size: 0.85rem;
-    color: #333;
+.card-info-text p {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.9;
+    color: #eee;
     line-height: 1.4;
 }
 
-/* Specific Shadow for depth */
-.pillar-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
-    pointer-events: none;
-}
-
-/* Responsive for About Section */
+/* Responsive Fix for About Section */
 @media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .about-wrapper {
+        grid-template-columns: 1fr; /* Stack vertically on tablets/phones */
+        gap: 40px;
     }
-    .about-pillars {
-        text-align: center;
-    }
-    .about-image-wrapper {
-        margin-bottom: 40px;
+    
+    .pillar-card-v2:hover {
+        transform: translateY(-5px); /* Lift up instead of slide right on mobile */
     }
 }
 /* Featured Work Grid */
@@ -643,13 +768,13 @@ footer {
 
 /* Image Section */
 .service-image {
+    position: relative; /* This acts as a 'hook' for the button */
     height: 200px;
     width: 100%;
     background-size: cover;
     background-position: center;
-    position: relative;
+    overflow: hidden;
 }
-
 /* Floating Icon Box (No longer cut off) */
 .work-icon {
     position: absolute;
@@ -671,25 +796,22 @@ footer {
 /* Clickable Floating Tag */
 .btn-tag {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 20px;
+    right: 20px;
     background: var(--primary);
-    color: white;
-    padding: 8px 18px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    color: white !important; /* Forces text to stay white */
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none; /* Removes the underline */
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 5;
+    display: inline-block; /* Essential for padding to work on links */
+    transition: all 0.3s ease;
 }
 
 .btn-tag:hover {
-    background: var(--dark);
+    background: #0056b3; /* Darker blue on hover */
     transform: scale(1.05);
 }
 
@@ -809,4 +931,229 @@ footer {
     display: inline-block;
     min-width: 50px;
     opacity: 1 !important; /* Force visibility for testing */
+}
+/* ==========================================================================
+   INTERACTIVE WORK CARDS (EXPANDABLE)
+   ========================================================================== */
+
+/* 1. Base Card Adjustments */
+.work-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the sliding content contained */
+}
+
+/* 2. Hidden Content Styling */
+.card-details-extra {
+    max-height: 0;        /* Starts closed */
+    overflow: hidden;     /* Hides the text inside */
+    opacity: 0;           /* Makes it invisible */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Professional smooth slide */
+    padding: 0 20px;      /* Side padding for the inner text */
+}
+
+/* 3. Logic for when Card is Clicked */
+.work-card.is-expanded {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Adds depth when open */
+    transform: translateY(-5px);
+}
+
+.work-card.is-expanded .card-details-extra {
+    max-height: 600px;    /* Sufficient height for the list */
+    opacity: 1;           /* Fade in the text */
+    padding-bottom: 25px; /* Bottom space after the button */
+}
+
+/* 4. Internal List Elements */
+.card-details-extra hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.card-details-extra h4 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.card-details-extra ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.card-details-extra li {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card-details-extra li i {
+    color: #28a745; /* Green color for your icons */
+    margin-right: 12px;
+    font-size: 0.8rem;
+}
+
+/* 5. Mobile Optimization */
+@media (max-width: 768px) {
+    .work-card.is-expanded .card-details-extra {
+        max-height: 800px; /* More room for wrapping text on small screens */
+    }
+}
+/* =============================================================
+   COMPACT FEEDBACK SECTION (Space-Saving)
+   ============================================================= */
+
+.section-compact {
+    padding: 40px 0; /* Reduced vertical padding */
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+}
+
+.small-title {
+    font-size: 1.5rem; /* Smaller heading */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.mini-card {
+    background: white;
+    padding: 20px; /* Tight padding to save space */
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.mini-photo {
+    width: 40px; /* Smaller photo */
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    border: 1.5px solid var(--primary);
+}
+
+.mini-stars {
+    color: #f1c40f;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.mini-card p {
+    font-size: 0.85rem; /* Smaller font for the quote */
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.mini-card h4 {
+    font-size: 0.9rem;
+    color: #111;
+    font-weight: 700;
+}
+/* =============================================================
+   ANCHOR TAG RESET (Keep Cards Identical)
+   ============================================================= */
+
+/* This ensures the 'View Case' link doesn't look like a classic link */
+.btn-tag {
+    /* 1. Reset Browser Defaults */
+    text-decoration: none !important;
+    color: white !important;
+    
+    /* 2. Force Layout Behavior */
+    display: inline-block; /* Allows padding and width to work */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    
+    /* 3. Keep your existing styling */
+    background: var(--primary);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 5;
+    
+    /* 4. Ensure smooth interaction */
+    transition: all 0.3s ease;
+}
+
+/* Prevents the card from changing color if the link was already clicked */
+.btn-tag:visited {
+    color: white !important;
+}
+
+/* Ensure the image container is ready for absolute positioning */
+.service-image {
+    position: relative; /* Acts as the anchor for the button */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0; /* Keeps corners rounded */
+}
+/* =============================================================
+   FINAL SYNC: MATCH CASE STUDIES TO SERVICES 
+   ============================================================= */
+
+/* This forces the image container to be the exact same size as your Services */
+.service-image {
+    position: relative !important; 
+    height: 200px !important;      /* Adjust this to 220px if your services are taller */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0; /* Matches your work-card rounding */
+}
+
+/* This fixes the button position and appearance */
+.btn-tag {
+    position: absolute !important;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 10;
+    display: inline-block;
+}
+
+/* Ensure the badges (Branding, etc) look professional */
+.badge {
+    font-size: 0.7rem;
+    background: #eef2ff;
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-right: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Hover effect to match the rest of your site */
+.btn-tag:hover {
+    background: #0056b3;
+    transform: scale(1.05);
 }
